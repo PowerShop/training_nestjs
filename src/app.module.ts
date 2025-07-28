@@ -5,7 +5,6 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthModule } from './auth/auth.module';
 import { Auth } from './auth/entities/auth.entity';
 
-
 @Module({
   imports: [
     TypeOrmModule.forRoot({
@@ -17,6 +16,7 @@ import { Auth } from './auth/entities/auth.entity';
     database: 'training_01',
     entities: [Auth],
     synchronize: true,
+    logging: true, // Enable logging for debugging purposes
   }),
   AuthModule,
   ],
