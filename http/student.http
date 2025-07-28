@@ -1,0 +1,73 @@
+### Get all students (findAll)
+GET http://localhost:3000/student
+Content-Type: application/json
+
+###
+
+### Get student by ID (findOne)
+GET http://localhost:3000/student/1
+Content-Type: application/json
+
+###
+
+### Create new student (create)
+POST http://localhost:3000/student
+Content-Type: application/json
+
+{
+	"studentId": "STD00001",
+	"firstName": "สมชาย",
+	"lastName": "ใจดี",
+	"email": "somchai@example.com",
+	"phone": "0812345678",
+	"birthDate": "2000-05-15"
+}
+
+###
+
+### Create another student
+POST http://localhost:3000/student
+Content-Type: application/json
+
+{
+	"studentId": "STD00002",
+	"firstName": "สมหญิง",
+	"lastName": "รักเรียน",
+	"email": "somying@example.com",
+	"phone": "0987654321",
+	"birthDate": "1999-12-20"
+}
+
+### Crearte another student
+POST http://localhost:3000/student
+Content-Type: application/json
+
+{
+	"studentId": "STD00004",
+	"registrationDate": "2025-07-28",
+	"firstName": "กิตติศักดิ์",
+	"lastName": "ศักดิ์เมือง",
+	"email": "kittisak@example.com",
+	"phone": "0929458830",
+	"birthDate": "2002-05-20"
+}
+
+###
+
+### Update student by ID (update)
+PUT http://localhost:3000/student/6
+Content-Type: application/json
+
+{
+	"firstName": "กิตติศักดิ์",
+	"lastName": "ศักดิ์เมือง",
+	"email": "k.sakmeang@gmail.com",
+	"phone": "0929458830",
+	"birthDate": "2002-05-30"
+}
+
+###
+
+### Delete student by ID (remove)
+DELETE http://localhost:3000/student/2
+Content-Type: application/json

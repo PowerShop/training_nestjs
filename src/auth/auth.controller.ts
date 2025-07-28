@@ -22,7 +22,7 @@ export class AuthController {
 		return this.authService.findOne(+id);
 	}
 
-	@Patch(':id')
+	@Put(':id')
 	update(@Param('id') id: string, @Body() updateAuthDto: UpdateAuthDto) {
 		return this.authService.update(+id, updateAuthDto);
 	}
@@ -32,8 +32,4 @@ export class AuthController {
 		return this.authService.remove(+id);
 	}
 
-	@Put(':id')
-	async updateAuth(@Param('id') id: string, @Body() updateAuthDto: UpdateAuthDto) {
-		return this.authService.update(+id, updateAuthDto);
-	}
 }

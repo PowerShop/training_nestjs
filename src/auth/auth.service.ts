@@ -71,9 +71,4 @@ export class AuthService {
 		await this.authRepo.delete(id);
         return `This action removes a #${id} auth`;
     }
-
-	async updateAuth(id: number, updateAuthDto: UpdateAuthDto) {
-		console.log(`Updating auth with ID: ${id} with data:`, updateAuthDto);
-		return this.update(id, updateAuthDto);
-	}
 }
