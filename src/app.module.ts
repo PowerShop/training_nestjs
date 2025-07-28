@@ -16,7 +16,7 @@ import { Auth } from './auth/entities/auth.entity';
     database: 'training_01',
     entities: [Auth],
     synchronize: true,
-    logging: true, // Enable logging for debugging purposes
+    logging: true,
   }),
   AuthModule,
   ],

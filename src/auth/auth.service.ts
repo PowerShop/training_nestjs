@@ -31,23 +31,49 @@ export class AuthService {
         return 'This action adds a new auth';
     }
 
-    findAll() {
+    async findAll() {
         console.log('Fetching all auth records');
-        return `This action returns all auth`;
+        return await this.authRepo.findAndCount();
     }
 
-    findOne(id: number) {
+    async findOne(id: number) {
         console.log(`Fetching auth with ID: ${id}`);
-        return `This action returns a #${id} auth`;
+		// Check availability
+		const auth = await this.authRepo.findOne({ where: { id } });
+		if (!auth) {
+			console.log('Auth not found:', id);
+			return 'Auth not found';
+		}
+		// Return the found auth record
+		return auth;
     }
 
-    update(id: number, updateAuthDto: UpdateAuthDto) {
-        console.log(`Updating auth with ID: ${id} with data:`, updateAuthDto);
-        return `This action updates a #${id} auth`;
+    async update(id: number, updateAuthDto: UpdateAuthDto) {
+        // const auth = await this.authRepo.findOne({ where: { id } });
+		
+		const { username, password } = updateAuthDto;
+
+		await this.authRepo.update(id, {
+			username,
+			password,
+		});
+		return `This action updates a #${id} auth with data: ${JSON.stringify(updateAuthDto)}`;
     }
 
-    remove(id: number) {
+    async remove(id: number) {
         console.log(`Removing auth with ID: ${id}`);
+		// Check availability
+		const auth = await this.authRepo.findOne({ where: { id } });
+		if (!auth) {
+			console.log('Auth not found:', id);
+			return 'Auth not found';
+		}
+		await this.authRepo.delete(id);
         return `This action removes a #${id} auth`;
     }
+
+	async updateAuth(id: number, updateAuthDto: UpdateAuthDto) {
+		console.log(`Updating auth with ID: ${id} with data:`, updateAuthDto);
+		return this.update(id, updateAuthDto);
+	}
 }

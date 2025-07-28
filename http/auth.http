@@ -5,7 +5,7 @@ Content-Type: application/json
 ###
 
 ### Get auth by ID (findOne)
-GET http://localhost:3000/auth/1
+GET http://localhost:3000/auth/3
 Content-Type: application/json
 
 ###
@@ -15,14 +15,14 @@ POST http://localhost:3000/auth
 Content-Type: application/json
 
 {
-	"username": "testuser001",
+	"username": "testuser006",
 	"password": "testpassword"
 }
 
 ###
 
 ### Update auth by ID (update)
-PATCH http://localhost:3000/auth/1
+PATCH http://localhost:3000/auth/3
 Content-Type: application/json
 
 {
@@ -33,5 +33,14 @@ Content-Type: application/json
 ###
 
 ### Delete auth by ID (remove)
-DELETE http://localhost:3000/auth/1
+DELETE http://localhost:3000/auth/7
 Content-Type: application/json
+
+### PUT
+PUT http://localhost:3000/auth/8
+Content-Type: application/json
+
+{
+	"username": "updateduser",
+	"password": "updatedpassword"
+}
