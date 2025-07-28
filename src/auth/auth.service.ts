@@ -16,6 +16,14 @@ export class AuthService {
     async create(createAuthDto: CreateAuthDto) {
         console.log('Creating auth with data:', createAuthDto);
         const { username, password } = createAuthDto;
+
+		// Duplicate check can be added here if needed
+		const existingAuth = await this.authRepo.findOne({ where: { username } });
+		if (existingAuth) {
+			console.log('Auth with username already exists:', username);
+			return 'Auth with this username already exists';
+		}
+
         await this.authRepo.save({
             username,
             password, // In a real application, ensure to hash the password before saving
