@@ -2,7 +2,8 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { AuthController } from './auth/auth.controller';
+import { AuthModule } from './auth/auth.module';
+import { Auth } from './auth/entities/auth.entity';
 
 
 @Module({
@@ -14,12 +15,12 @@ import { AuthController } from './auth/auth.controller';
     username: 'root',
     password: 'Kittisak644245001',
     database: 'training_01',
-    entities: [],
+    entities: [Auth],
     synchronize: true,
   }),
-
+  AuthModule,
   ],
-  controllers: [AuthController],
+  controllers: [AppController],
   providers: [AppService],
 })
 
