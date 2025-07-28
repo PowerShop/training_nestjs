@@ -15,8 +15,8 @@ POST http://localhost:3000/auth
 Content-Type: application/json
 
 {
-  "username": "testuser001",
-  "password": "testpassword"
+	"username": "testuser001",
+	"password": "testpassword"
 }
 
 ###
@@ -26,8 +26,8 @@ PATCH http://localhost:3000/auth/1
 Content-Type: application/json
 
 {
-  "username": "updateduser",
-  "password": "updatedpassword"
+	"username": "updateduser",
+	"password": "updatedpassword"
 }
 
 ###
